@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  database:
+    image: postgres:12
+    container_name: strapi-blog-database
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_DB: strapiblog
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: user
+    volumes:
+      - strapi-blog-pgdata:/var/lib/postgresql/data/pgdata
+    ports:
+      - 5432:5432
+volumes:
+  strapi-blog-pgdata:
