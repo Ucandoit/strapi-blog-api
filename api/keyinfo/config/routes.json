@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/keyinfo",
+      "handler": "keyinfo.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/keyinfo",
+      "handler": "keyinfo.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/keyinfo",
+      "handler": "keyinfo.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

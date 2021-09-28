@@ -12,5 +12,14 @@ services:
       - strapi-blog-pgdata:/var/lib/postgresql/data/pgdata
     ports:
       - 5432:5432
+  database-test:
+    image: postgres:12
+    container_name: strapi-blog-database-test
+    environment:
+      POSTGRES_DB: strapiblogtest
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: user
+    ports:
+      - 5433:5432
 volumes:
   strapi-blog-pgdata:
