@@ -1,0 +1,25 @@
+{
+  "collectionName": "person",
+  "info": {
+    "name": "person",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "firstname": {
+      "type": "string",
+      "required": true
+    },
+    "lastname": {
+      "type": "string",
+      "required": true
+    },
+    "jobPosition": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

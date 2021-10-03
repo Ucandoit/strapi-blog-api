@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "home",
+  "info": {
+    "name": "home",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "person": {
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage.person",
+      "required": true
+    },
+    "about": {
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage.about",
+      "required": true
+    },
+    "professionalSkills": {
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.skill",
+      "required": true
+    },
+    "technicalSkills": {
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.skill",
+      "required": true
+    }
+  }
+}

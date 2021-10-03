@@ -1,0 +1,30 @@
+{
+  "collectionName": "skill",
+  "info": {
+    "name": "skill",
+    "icon": "angle-right",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "level": {
+      "type": "decimal",
+      "required": true,
+      "max": 1,
+      "min": 0
+    },
+    "style": {
+      "type": "enumeration",
+      "enum": [
+        "bar",
+        "circle"
+      ],
+      "default": "bar",
+      "required": false
+    }
+  }
+}
