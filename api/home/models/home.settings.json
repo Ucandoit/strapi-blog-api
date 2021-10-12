@@ -26,14 +26,14 @@
     },
     "professionalSkills": {
       "type": "component",
-      "repeatable": true,
-      "component": "homepage.skill",
+      "repeatable": false,
+      "component": "homepage.skills",
       "required": true
     },
     "technicalSkills": {
       "type": "component",
-      "repeatable": true,
-      "component": "homepage.skill",
+      "repeatable": false,
+      "component": "homepage.skills",
       "required": true
     }
   }

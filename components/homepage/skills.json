@@ -1,0 +1,21 @@
+{
+  "collectionName": "skills",
+  "info": {
+    "name": "skills",
+    "icon": "angle-double-right",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.skill"
+    }
+  }
+}
