@@ -2,7 +2,8 @@
   "collectionName": "person",
   "info": {
     "name": "person",
-    "icon": "address-card"
+    "icon": "address-card",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -20,6 +21,23 @@
     },
     "title": {
       "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "socialMedias": {
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.social-media"
     }
   }
 }
