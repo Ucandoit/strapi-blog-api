@@ -1,0 +1,28 @@
+{
+  "collectionName": "experience",
+  "info": {
+    "name": "experience",
+    "icon": "address-book"
+  },
+  "options": {},
+  "attributes": {
+    "begin": {
+      "type": "string",
+      "required": true
+    },
+    "end": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string",
+      "required": true
+    },
+    "position": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

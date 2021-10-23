@@ -1,0 +1,21 @@
+{
+  "collectionName": "experiences",
+  "info": {
+    "name": "experiences",
+    "icon": "air-freshener",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.experience"
+    }
+  }
+}

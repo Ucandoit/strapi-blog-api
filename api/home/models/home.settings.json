@@ -35,6 +35,11 @@
       "repeatable": false,
       "component": "homepage.skills",
       "required": true
+    },
+    "experiences": {
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage.experiences"
     }
   }
 }
