@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog",
+  "info": {
+    "name": "blog"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "author": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "tags": {
+      "collection": "tag",
+      "via": "blogs",
+      "dominant": true
+    }
+  }
+}
