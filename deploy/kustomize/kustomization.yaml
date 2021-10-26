@@ -11,6 +11,7 @@ resources:
   - service.yaml
   - ingress.yaml
   - secret-registry.yaml
+  - volume.yaml
 
 
 configMapGenerator:

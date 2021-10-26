@@ -18,6 +18,10 @@ spec:
     spec:
       imagePullSecrets:
         - name: docker-registry
+      volumes:
+        - name: uploads
+          persistentVolumeClaim:
+            claimName: uploads-volume-claim
       containers:
       - name: strapi-blog
         image: registry.ucandoit.io/strapi-blog:0.0.1
@@ -63,6 +67,9 @@ spec:
             port: 1337
           initialDelaySeconds: 3
           timeoutSeconds: 3
+        volumeMounts:
+          - name: uploads
+            mountPath: '/app/public/uploads'
       initContainers:
       - name: wait-for-postgres
         image: registry.ucandoit.io/busybox:1
