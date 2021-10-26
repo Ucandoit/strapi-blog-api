@@ -57,13 +57,13 @@ spec:
                   key: PG_PASSWORD
         livenessProbe:
           httpGet:
-            path: /
+            path: /_health
             port: 1337
           initialDelaySeconds: 3
           timeoutSeconds: 3
         readinessProbe:
           httpGet:
-            path: /
+            path: /_health
             port: 1337
           initialDelaySeconds: 3
           timeoutSeconds: 3
