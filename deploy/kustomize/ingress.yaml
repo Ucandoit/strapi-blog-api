@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: strapi-blog
+  namespace: ucandoit
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: strapi.ucandoit.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: strapi-blog
+          servicePort: 80
