@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "blog",
   "info": {
-    "name": "blog"
+    "name": "blog",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -25,9 +26,15 @@
       "required": true
     },
     "tags": {
-      "collection": "tag",
       "via": "blogs",
+      "collection": "tag",
       "dominant": true
+    },
+    "createDate": {
+      "type": "datetime"
+    },
+    "updateDate": {
+      "type": "datetime"
     }
   }
 }

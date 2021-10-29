@@ -2,12 +2,13 @@
   "kind": "collectionType",
   "collectionName": "tag",
   "info": {
-    "name": "tag"
+    "name": "tag",
+    "description": ""
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
