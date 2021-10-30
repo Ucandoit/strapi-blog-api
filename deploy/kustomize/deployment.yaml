@@ -24,7 +24,7 @@ spec:
             claimName: uploads-volume-claim
       containers:
       - name: strapi-blog
-        image: registry.ucandoit.io/strapi-blog:0.0.1
+        image: registry.ucandoit.io/strapi-blog:0.0.2
         imagePullPolicy: Always
         ports:
         - name: http-entry

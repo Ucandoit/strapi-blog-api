@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package.json .
 COPY yarn.lock .
 
-RUN yarn
+RUN yarn install --frozen-lockfile
 
 COPY favicon.ico .
 COPY api/ api/

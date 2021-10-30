@@ -1,0 +1,45 @@
+name: Auto deploy
+on:
+  push:
+    tags:
+      - '*'
+env:
+    CI_REGISTRY_USER: ${{ secrets.CI_REGISTRY_USER }}
+    CI_REGISTRY_PASSWORD: ${{ secrets.CI_REGISTRY_PASSWORD }}
+    CI_REGISTRY: ${{ secrets.CI_REGISTRY }}
+    KUBECONFIG: ${{ secrets.KUBECONFIG }}
+    PG_PASSWORD: ${{ secrets.PG_PASSWORD }}
+    GIT_TAG: ${{ github.ref_name }}
+jobs:
+  build-push-image:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Login into private docker registry
+      run: docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - name: Build docker image
+      run: docker build -t $CI_REGISTRY/strapi-blog:$GIT_TAG -f deploy/Dockerfile .
+    - name: Push docker image
+      run: docker push $CI_REGISTRY/strapi-blog:$GIT_TAG
+  deploy-k3d:
+    runs-on: ubuntu-20.04
+    needs: build-push-image
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create kubeconfig file
+        run: |
+          mkdir -p .kube
+          echo "${{ env.KUBECONFIG }}" > .kube/config
+      - name: Kubernetes toolset
+        uses: stefanprodan/kube-tools@v1.6.0
+        with:
+          kubectl: 1.21.5
+          kustomize: 4.2.0
+          command: |
+            echo "Create registry secret"
+            export KUBECONFIG=.kube/config
+            kubectl create secret docker-registry docker-registry -n ucandoit --docker-server=$CI_REGISTRY \
+            --docker-username=$CI_REGISTRY_USER --docker-password=$CI_REGISTRY_PASSWORD --dry-run=client \
+            -o yaml > deploy/kustomize/secret-registry.yaml
+            echo "Deploy with kustomize"
+            PG_PASSWORD=$PG_PASSWORD kustomize build deploy/kustomize | kubectl apply -f -
