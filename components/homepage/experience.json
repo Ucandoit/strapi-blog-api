@@ -2,7 +2,8 @@
   "collectionName": "experience",
   "info": {
     "name": "experience",
-    "icon": "address-book"
+    "icon": "address-book",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -22,7 +23,7 @@
       "required": true
     },
     "description": {
-      "type": "text"
+      "type": "richtext"
     }
   }
 }
