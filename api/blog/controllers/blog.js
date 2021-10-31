@@ -1,5 +1,6 @@
 'use strict';
 const { sanitizeEntity } = require('strapi-utils');
+const removeMd = require('remove-markdown');
 
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
@@ -17,7 +18,9 @@ module.exports = {
     return entities.map((entity) => {
       const blog = sanitizeEntity(entity, { model: strapi.models.blog });
       // do not return the whole content, find the first line that is not a heading or empty line
-      blog.summary = blog.content.split('\n').find((line) => line && !line.startsWith('#') && !line.startsWith(' '));
+      blog.summary = removeMd(
+        blog.content.split('\n').find((line) => line && !line.startsWith('#') && !line.startsWith(' '))
+      );
       Reflect.deleteProperty(blog, 'content');
       return blog;
     });
